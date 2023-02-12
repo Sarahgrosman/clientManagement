@@ -1,0 +1,74 @@
+
+ 
+    
+   [ {
+     "id":1, 
+     "name":"תנור בנוי",
+      "price":"3,418 ₪",
+       "description":" תנור דו-תאי 98 ליטר 8 תוכניות DELONGI  NDB-6969N - צבע שחור - שנה אחריות יבואן רשמי על ידי ניופאן ",
+      "image":"./images/מכשירי חשמל גדולים/bildin.jpg"
+    },
+    {
+      "id":2,
+      "name":"מדיח כלים",
+      "price":"3280 ₪",
+      "description":"מדיח כלים על השיש דיגיטלי Delonghi WMD-7 - צבע לבן - אחריות יבואן רשמי ניופאן",
+      "image":"./images/מכשירי חשמל גדולים/Dishwasher.jpg"
+    },
+    {
+      "id":3,
+      "name":"מייבש כביסה", 
+      "price":"1300 ₪",
+      "description":"מייבש כביסה פתח חזית 8 ק''ג קונדנסור Bosch Serie 6 WTR87T80IL - צבע לבן - אחריות יבואן רשמי BSH", 
+      "image":"./images/מכשירי חשמל גדולים/dryer.jpg"
+    },
+    {
+      "id":4,
+      "name":"מקפיא",
+      "price":"2080 ₪", 
+      "description":"מקפיא 7 מגירות 274 ליטר Fujicom FJ-FNF371X NO-FROST - צבע נירוסטה",
+       "image":"./images/מכשירי חשמל גדולים/freezer.jpg"
+    },
+    {
+      "id":5,
+       "name":"כיריים גז",
+       "price":"1567 ₪",
+       "description":"כיריים גז 5 להבות בישול Bosch Serie 6 PPQ7A9M20Y FlameSelect - בגימור זכוכית מחוסמת בצבע כסוף - שנה אחריות יבואן רשמי BSH", 
+       "image":"./images/מכשירי חשמל גדולים/Gas stoves.jpg"
+    },
+    {
+      "id":6,
+       "name":"כיריים אינדוקציה",
+       "price":"4200 ₪",
+       "description":"כיריים אינדוקציה 4 אזורי בישול 60 ס''מ Siemens iQ700 EX675FXC1E TouchSlider - שנה אחריות יבואן רשמי BSH", 
+       "image":"./images/מכשירי חשמל גדולים/induction cooker.jpg"
+    },
+    {
+      "id":7,
+      "name":"תנור", 
+      "price":"2469 ₪", 
+      "description":"תנור אפיה על גז משולב כיריים גז 68 ליטר Normande ND-7060 צבע נירוסטה", 
+      "image":"./images/מכשירי חשמל גדולים/oven.jpg"
+    },
+    {
+      "id":8,
+      "name":"מקרר", 
+      "price":"8149 ₪", 
+      "description":"מקרר 4 דלתות מקפיא תחתון 615 ליטר Sharp SJ-R8620BG - בז", 
+      "image":"./images/מכשירי חשמל גדולים/refrigerator.jpg"
+    },
+    {
+      "id":9, 
+      "name":"קולט אדים", 
+      "price":"1852 ₪", 
+      "description":"קולט אדים צמוד-קיר פינתי Delonghi CHC-1003 - צבע נירוסטה - שנה אחריות יבואן רשמי על ידי ניופאן", 
+      "image":"./images/מכשירי חשמל גדולים/Stean colleotion.jpg"
+    },
+    {
+      "id":10, 
+      "name":"מכונת כביסה", 
+      "price":"2789 ₪", 
+      "description":"מכונת כביסה פתח חזית 8 ק''ג 1000 סל''ד LENCO LWM-8100 - צבע לבן", 
+      "image":"./images/מכשירי חשמל גדולים/washing machine.jpg"
+    }
+  ]

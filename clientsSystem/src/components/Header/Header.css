@@ -1,0 +1,30 @@
+.nav{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+}
+
+a:hover {
+    background-color: gray;
+  }
+  
+.empty {
+    background-color: black;
+    height: 51px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

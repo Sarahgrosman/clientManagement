@@ -1,0 +1,21 @@
+.cHPbXw{
+    color: rgb(68, 122, 239);
+    font-family: arimo, arial;
+    font-weight: 400;
+    text-decoration: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    text-transform: inherit;
+    word-break: break-word;
+    direction: inherit;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+    
+    
+    
+}

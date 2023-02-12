@@ -1,0 +1,12 @@
+.ordersList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.orders{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
