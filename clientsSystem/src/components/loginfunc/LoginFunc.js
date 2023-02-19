@@ -45,12 +45,12 @@ export default function LoginFunc({ setToken,token }) {
     captchaRef.current.reset();
     try{
       const {data} = await axios.post("http://localhost:5000/checkToken", {token})
-      if(data.split(" ")[0]=="Human"){
+      /*if(data.split(" ")[0]=="Human"){
         setToken({...token,reCaptcha:true})
       }
       else{
         setToken({...token,reCaptcha:false})
-      }
+      }*/
       
     }
     
@@ -66,7 +66,7 @@ export default function LoginFunc({ setToken,token }) {
       username,
       password
     });
-    if(token?.message === `ברוכ/ה הבא/ה ${username}`&& token?.reCaptcha){
+    if(token?.message === `ברוכ/ה הבא/ה ${username}`/*&& token?.reCaptcha*/){
       navigate('../allClients',{state:username})
     }
   }
@@ -77,7 +77,7 @@ export default function LoginFunc({ setToken,token }) {
     await registerUser({
       username,
       password})
-      if(token?.message === "עודכן בהצלחה" && token?.reCaptcha){
+      if(token?.message === "עודכן בהצלחה"/* && token?.reCaptcha*/){
         navigate('../allClients',{state:username})
       }
   }
