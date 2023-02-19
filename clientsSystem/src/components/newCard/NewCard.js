@@ -32,7 +32,7 @@ const NewCard = () => {
     
   return (
     <div>
-        <form>
+        <form className='newClient'>
             <label>
             
             <input type="text" value={newCard?.name} onChange={(e)=>setNewCard({...newCard,name:e.target.value})}></input>

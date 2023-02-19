@@ -17,7 +17,7 @@ router.post("/login",async(req,res)=>{
     const user = await usersSchema.find(credentials)
     console.log(user);
     if(user.length>0){
-        res.send(`ברוכ/ה הבא/ה${user[0].username}`)
+        res.send(`ברוכ/ה הבא/ה ${user[0].username}`)
     }
     else{
         res.send("עדיין לא נרשמת,עליך להרשם כדי להתחבר")

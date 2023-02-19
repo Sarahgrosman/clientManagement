@@ -31,8 +31,8 @@ function App() {
     
       <Routes>
       <Route path="/" element={<Layout />}>
-      {/*<Route path= "/login" element={<Login setToken={setToken} token={token}/>} />*/}
-      <Route path= "/home" element={<Home />} />
+      <Route path= "/login" element={<Login setToken={setToken} token={token}/>} />
+      <Route path= "/" element={<Home />} />
       {/*<Route index element={<Home newCard={newCard} setNewCard={setNewCard}/>}/>*/}
       <Route path= "about" element={<About/>} />
       <Route path = "NewClient" element={<NewClient />}/>

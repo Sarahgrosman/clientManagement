@@ -31,7 +31,7 @@ const Header = () => {
     title:"אודות"
 },
 {
-    path:"/home",
+    path:"/",
     title:"דף הבית",
 }]
 

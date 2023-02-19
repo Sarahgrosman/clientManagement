@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useLocation,useNavigate } from 'react-router-dom';
 import  ReCAPTCHA  from "react-google-recaptcha"
 
-export default function Login({ setToken,token }) {
+export default function LoginFunc({ setToken,token }) {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,6 +19,7 @@ export default function Login({ setToken,token }) {
   async function loginUser(credentials) {
     try{
       const {data} = await axios.post('http://localhost:5000/login', {credentials})
+      console.log(data);
      setToken({...token,message:data})
     }
     catch(error){
@@ -32,7 +33,7 @@ export default function Login({ setToken,token }) {
     try{
       const {data} = await axios.post("http://localhost:5000/newUser", {credentials})
       console.log(data);
-      setToken([{...token,massage:data}])
+      setToken({...token,message:data})
       
     }
     catch(error){
@@ -44,8 +45,13 @@ export default function Login({ setToken,token }) {
     captchaRef.current.reset();
     try{
       const {data} = await axios.post("http://localhost:5000/checkToken", {token})
-      console.log("recaptcha",data)
-      //setToken([{...token,reCaptcha:data}])
+      if(data.split(" ")[0]=="Human"){
+        setToken({...token,reCaptcha:true})
+      }
+      else{
+        setToken({...token,reCaptcha:false})
+      }
+      
     }
     
     catch(error) {
@@ -60,7 +66,7 @@ export default function Login({ setToken,token }) {
       username,
       password
     });
-    if(token.message==`ברוכ/ה הבא/ה ${username}` && token.reCaptcha=="Human 👨 👩"){
+    if(token?.message === `ברוכ/ה הבא/ה ${username}`&& token?.reCaptcha){
       navigate('../allClients',{state:username})
     }
   }
@@ -71,7 +77,7 @@ export default function Login({ setToken,token }) {
     await registerUser({
       username,
       password})
-      if(token[0]?.massage === "עודכן בהצלחה" && token[0]?.reCaptcha === "Human 👨 👩"){
+      if(token?.message === "עודכן בהצלחה" && token?.reCaptcha){
         navigate('../allClients',{state:username})
       }
   }
@@ -96,7 +102,7 @@ export default function Login({ setToken,token }) {
           <button type="submit">Submit</button>
         </div>
       </form>
-      <div>{token}</div>
+      {/*<div>{token}</div>*/}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-form{
+.newClient{
     display: grid;
     grid-template-columns: 20% 30% 30% 20% ;
     grid-template-rows: 80px 80px 80px 80px 80px ;
@@ -14,35 +14,35 @@ form{
 
 
 
-form > label:nth-child(1){
+.newClient > label:nth-child(1){
     grid-area: 2/3/3/4;
 }
 
-form > label:nth-child(2){
+.newClient > label:nth-child(2){
     grid-area: 2/2/3/3;
 }
 
-form > label:nth-child(3){
+.newClient > label:nth-child(3){
     grid-area: 3/3/4/4;
 }
 
-form > label:nth-child(4){
+.newClient > label:nth-child(4){
     grid-area: 3/2/4/3;
 }
 
-form > label:nth-child(5){
+.newClient > label:nth-child(5){
     grid-area: 4/3/5/4;
 }
 
-form > label:nth-child(6){
+.newClient > label:nth-child(6){
     grid-area: 4/2/5/3;
 }
 
-form > label:nth-child(7){
+.newClient > label:nth-child(7){
     grid-area: 5/3/6/4;
 }
 
-form > button:nth-child(8){
+.newClient > button:nth-child(8){
     grid-area: 5/2/6/3;
     width: 150px;
     height: 30px;
