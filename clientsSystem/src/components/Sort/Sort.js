@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Button from '../Button/Button'
 import './Sort.css'
 const Sort = ({buttonText,style}) => {
  return (
@@ -7,9 +6,7 @@ const Sort = ({buttonText,style}) => {
         <h3>חפש לפי</h3>
         <div className='options'>
         {buttonText?.map((item)=>
-      <Button text={item.text} 
-       done={(e)=>item.function(item.sortText,e)}
-       style={style}/>
+      <button onClick={(e)=>item.function(item.sortText,e)}style={style}>{item.text}</button>
      )}
        
         </div>

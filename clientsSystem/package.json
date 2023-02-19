@@ -1,5 +1,5 @@
 {
-  "name": "holy-books",
+  "name": "costumerManagmentSystem",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,6 +20,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0",
+    "react-google-recaptcha": "^2.1.0",
     "react-i18next": "^12.0.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.3.0",

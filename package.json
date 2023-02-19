@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "-": "^0.0.1",
+    "concurrently": "^7.6.0",
+    "google": "^2.1.0",
+    "react": "^18.2.0",
+    "recaptcha": "^1.2.1",
+    "save": "^2.9.0"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "server": "cd server && nodemon index.js",
+    "client": "cd clientsSystem && npm run start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "app": "concurrently \"npm run start\" \"npm run client\""
+  }
+}

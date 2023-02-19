@@ -2,10 +2,10 @@ const express = require("express");
 const mongoose =require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
-//const usersRouter = require("./router/users")
 const productsRouter = require("./router/products")
 const clientsRouter = require("./router/clients")
 const meetingRouter = require("./router/meetings")
+const usersRouters = require("./router/users")
 const app = express();
 const port = process.env.PORT
 mongoose.connect(
@@ -17,8 +17,9 @@ mongoose.connect(
     app.use(cors());
     
     app.use(productsRouter);
-    app.use(clientsRouter)
-    app.use(meetingRouter)
+    app.use(clientsRouter);
+    app.use(meetingRouter);
+    app.use(usersRouters);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

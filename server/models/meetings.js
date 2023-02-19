@@ -1,6 +1,6 @@
 const mongoose = require("mongoose"); 
 
-const meetinngSchema = new mongoose.Schema({
+const meetingSchema = new mongoose.Schema({
     name:String,
     iduser:Number,
     date:String,
@@ -9,4 +9,4 @@ const meetinngSchema = new mongoose.Schema({
 })
 
 
-module.exports=mongoose.model("meetings",meetinngSchema)
+module.exports=mongoose.model("meetings",meetingSchema)

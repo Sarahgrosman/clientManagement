@@ -1,12 +1,12 @@
+import React, { useEffect, useState } from "react";
 
 import {
     PayPalButtons,
     PayPalHostedField,
     PayPalScriptProvider,
   } from "@paypal/react-paypal-js";
-  import React, { useEffect, useState } from "react";
   
-  import { useNavigate } from "react-router";
+
   import axios from "axios";
   
   const OrderCheckout = ({params,orderProducts}) => {
@@ -16,9 +16,8 @@ import {
     const [payment_method, setPayment] = useState("none");
     const [total, setTotal] = useState(0.0);
   
-    const navigate = useNavigate();
-  
-    const CLIENT_ID = "ASd99jD5qtH5eKJQ7jAQDLTutg4CMm8cJzeGdE0wiZsACxzFM-Wtr9HfJe_eEY02MX_Jx6RIxkihPq7y"
+    const CLIENT_ID = process.env.CLIENT_ID
+    
     useEffect(() => {
       if (done) {
         setTotal(orderProducts.reduce((a,b)=>a.quantity+b.quantity))
