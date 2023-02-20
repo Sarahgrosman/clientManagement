@@ -56,8 +56,8 @@ const AllClients = ({data,setData,}) => {
       "width":"80%",
       "height":"40px",
       "color":"white",
-      "background-color":"black",
-      "border-color":"white",
+      "backgroundColor":"black",
+      "borderColor":"white",
       
     }
 

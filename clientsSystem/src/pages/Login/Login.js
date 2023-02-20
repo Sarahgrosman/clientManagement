@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
 import LoginFunc from '../../components/loginfunc/LoginFunc'
 import useToken from '../../components/loginfunc/UseToken';
-const Login = ({setToken,token}) => {
-  
+const Login = ({}) => {
+  const [token, setToken] = useState(null);
+  console.log(token);
 
   return (
     <div>

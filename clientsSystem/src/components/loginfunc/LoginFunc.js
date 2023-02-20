@@ -1,4 +1,4 @@
-import React, { useRef , useState} from 'react';
+import React, { useEffect, useRef , useState} from 'react';
 import './Login.css';
 import axios from 'axios';
 import { useLocation,useNavigate } from 'react-router-dom';
@@ -7,6 +7,10 @@ import  ReCAPTCHA  from "react-google-recaptcha"
 export default function LoginFunc({ setToken,token }) {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [reCaptcha,setReCaptcha] = useState(false);
+  const [message,setMessage] = useState(null)
+  console.log(reCaptcha);
+  console.log(message);
 
   const captchaRef = useRef ( null );
   const navigate = useNavigate();
@@ -15,12 +19,22 @@ export default function LoginFunc({ setToken,token }) {
 
   const {state} = location;
 
+  useEffect(()=>{
+    if (message){
+      message === `ברוכ/ה הבא/ה ${username}` && reCaptcha===true?
+      navigate('../allClients',{state:username})
+    :
+    alert(message)
+    }
+  },[message])
+  
+
 
   async function loginUser(credentials) {
     try{
       const {data} = await axios.post('http://localhost:5000/login', {credentials})
       console.log(data);
-     setToken({...token,message:data})
+      setMessage(data)
     }
     catch(error){
       console.log(error);
@@ -33,24 +47,26 @@ export default function LoginFunc({ setToken,token }) {
     try{
       const {data} = await axios.post("http://localhost:5000/newUser", {credentials})
       console.log(data);
-      setToken({...token,message:data})
+      setMessage(data)
       
     }
     catch(error){
       console.log(error);
     }
    }
+
    const checkToken = async () => {
     const token = captchaRef.current.getValue();
     captchaRef.current.reset();
     try{
       const {data} = await axios.post("http://localhost:5000/checkToken", {token})
-      /*if(data.split(" ")[0]=="Human"){
-        setToken({...token,reCaptcha:true})
+      console.log(data);
+      if(data.split(" ")[0]=="Human"){
+        setReCaptcha(true)
       }
       else{
-        setToken({...token,reCaptcha:false})
-      }*/
+        setReCaptcha(false)
+      }
       
     }
     
@@ -66,9 +82,8 @@ export default function LoginFunc({ setToken,token }) {
       username,
       password
     });
-    if(token?.message === `ברוכ/ה הבא/ה ${username}`/*&& token?.reCaptcha*/){
-      navigate('../allClients',{state:username})
-    }
+   
+    
   }
 
   const handleSubmitRegister = async e =>{
@@ -77,7 +92,7 @@ export default function LoginFunc({ setToken,token }) {
     await registerUser({
       username,
       password})
-      if(token?.message === "עודכן בהצלחה"/* && token?.reCaptcha*/){
+      if(message === "עודכן בהצלחה" && reCaptcha){
         navigate('../allClients',{state:username})
       }
   }

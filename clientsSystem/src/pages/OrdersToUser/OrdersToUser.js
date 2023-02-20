@@ -9,16 +9,19 @@ import OrderCheckout from '../../components/payment/Payment'
 
 const OrdersToUser = ({client}) => {
 
-  
-  const [orderProducts,setOrderProducts] = useState([])
+  const [orderProducts,setOrderProducts] = useState([]);
   console.log("orderProduct: " ,orderProducts);
   
-  const params = useParams()
-  const location = useLocation()
+  const params = useParams();
+  const location = useLocation();
+  console.log(location.state);
  
+  /*useEffect(()=>{
+    localStorage.removeItem("order")
+    setOrderProducts([])
+  },[params])*/
 
   const save = async () =>{
-    
     try{
       await axios.post('http://localhost:5000/updateOrder',{orderProducts,params})
     }
@@ -39,14 +42,12 @@ const OrdersToUser = ({client}) => {
       const orders = localStorage.getItem("order")
       console.log(JSON.parse(orders));
       JSON.parse(orders)!=null?
-      setOrderProducts([...JSON.parse(orders),location.state])
+      setOrderProducts([...JSON.parse(orders),{...location.state , quantity:"1"}])
       :
-      setOrderProducts([location.state])
+      setOrderProducts([{...location.state,quantity:1}])
     }
 
-    }
-   
-,[location.state])
+    },[location.state])
 
   return (
     <div>

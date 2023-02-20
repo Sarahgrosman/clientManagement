@@ -19,19 +19,16 @@ function App() {
   
   const [client,setClient] = useState(null);
   const [data,setData] = useState(null)
-  const [token, setToken] = useState(null);
-  console.log(token);
+ 
  
 
   return (
     <div className="App">
-      {/*if(!token){
-        <Login setToken={setToken}/>
-      }*/}
+     
     
       <Routes>
       <Route path="/" element={<Layout />}>
-      <Route path= "/login" element={<Login setToken={setToken} token={token}/>} />
+      <Route path= "/login" element={<Login />} />
       <Route path= "/" element={<Home />} />
       {/*<Route index element={<Home newCard={newCard} setNewCard={setNewCard}/>}/>*/}
       <Route path= "about" element={<About/>} />
