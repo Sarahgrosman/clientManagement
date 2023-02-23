@@ -35,11 +35,11 @@ const clientSchema = new mongoose.Schema({
       note:{note:String,date:Date},
       callLog:{callLog:String,date:Date},
     },
-    orders:{
+    orders:[{
         nameClient:String,
         payment_method:{type:String,
                         enum:["cash","paypall","credit"],},
-        orders:[[{
+        products:[{
            id:Number,
            name:String,
            price:String,
@@ -52,10 +52,8 @@ const clientSchema = new mongoose.Schema({
             type: Date,
             default: Date.now
           }
-       }]],
-
-
-    }
+       }],
+      }]
      
 
 });

@@ -3,7 +3,7 @@ import EditableLabel from '../EditableLabel/EditableLabel'
 
 
 
-export const OrderList = ({orderProducts,setOrderProduct}) => {
+export const OrderList = ({orderProducts,setOrderProducts}) => {
   
   return (
     <div>
@@ -23,7 +23,8 @@ export const OrderList = ({orderProducts,setOrderProduct}) => {
             <tr>
                  <td>{el?.name}</td>
                  <td>{el?.description}</td>
-                 <td onChange={(e)=>el.quantity = e.target.value } ><EditableLabel text={el.quantity}/></td>
+                 <td onChange={(e)=>{el.quantity = e.target.value
+                                      setOrderProducts([...orderProducts])}} ><EditableLabel text={el.quantity}/></td>
                  <td>{el?.price}</td>
                  <td>{parseInt(el?.quantity)*parseInt(el?.price?.split(" ")[0])}</td>
                </tr>

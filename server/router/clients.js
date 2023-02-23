@@ -16,7 +16,7 @@ router.post("/newClient",async(req,res)=>{
           
       }
           else{
-            console.log("b");
+            
             const newClient = new clientSchema(newCard);
             console.log(newClient);
             await newClient.save();
@@ -47,25 +47,7 @@ router.post("/newClient",async(req,res)=>{
 
  })
 
- router.post('/updateOrder',async(req,res)=>{
-   console.log(req.body);
-   const {name,idUser}=req.body.params;
-   
-   const{orderProducts}=req.body;
-   console.log(name,idUser);
-   console.log(orderProducts)
-
-   try{
-      
-       await clientSchema.findOneAndUpdate({name,idUser},  { orders:{$push:[{$each: orderProducts}]}})
-   
-      res.send("updated")
-   }
-   catch(error){
-      console.log(error);
-   }
-
- })
+ 
  
  router.get("/allClients", async(req,res)=>{
    try{
@@ -77,15 +59,7 @@ router.post("/newClient",async(req,res)=>{
    }
  })
 
- router.get('/allOrders',async(req,res)=>{
-   try{
-      const allOrders = await clientSchema.find({}).select("orders")
-      res.send(allOrders)
-   }
-   catch(err){
-      console.log(err);
-   }
- })
+ 
 
  router.post('/payment',async(req,res)=>{
       console.log(req.body);

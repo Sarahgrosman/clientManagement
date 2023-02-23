@@ -11,43 +11,51 @@ const OrdersToUser = ({client}) => {
 
   const [orderProducts,setOrderProducts] = useState([]);
   console.log("orderProduct: " ,orderProducts);
-  
+  const [order,setOrder] = useState(null)
+  console.log("order:",order);
   const params = useParams();
+  const {name,idUser} = params;
   const location = useLocation();
-  console.log(location.state);
- 
-  /*useEffect(()=>{
-    localStorage.removeItem("order")
-    setOrderProducts([])
-  },[params])*/
+  const {state} = location;
 
-  const save = async () =>{
-    try{
-      await axios.post('http://localhost:5000/updateOrder',{orderProducts,params})
-    }
-    catch(err){
-      console.log(err);
-    }
+
+  const save = async () => {
+    setOrder({name,idUser,products:orderProducts})
     localStorage.removeItem("order")
     setOrderProducts([])
   }
 
-  const voidOrder = () => {
-    setOrderProducts([])
-    localStorage.removeItem("order")
-  }
   useEffect(()=>{
-    //localStorage.clear()
-    if(location.state){
+   const fetchOrder = async() =>{
+    if(order){
+      try{
+        await axios.post('http://localhost:5000/newOrder',{order})
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+   }
+    fetchOrder()
+
+  },[order])
+   
+   const voidOrder = () => {
+    setOrderProducts([])
+    localStorage.removeItem("order")
+  }
+
+  useEffect(()=>{
+    if(state){
       const orders = localStorage.getItem("order")
       console.log(JSON.parse(orders));
       JSON.parse(orders)!=null?
-      setOrderProducts([...JSON.parse(orders),{...location.state , quantity:"1"}])
+      setOrderProducts([...JSON.parse(orders),{...state , quantity:1}])
       :
       setOrderProducts([{...location.state,quantity:1}])
     }
 
-    },[location.state])
+    },[state])
 
   return (
     <div>
