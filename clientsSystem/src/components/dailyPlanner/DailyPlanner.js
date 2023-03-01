@@ -3,7 +3,7 @@ import React, { useState,useEffect,useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleChevronLeft, faCircleChevronRight } from '@fortawesome/free-solid-svg-icons'
 import ViewMeeting from '../ViewMeeting/ViewMeeting'
-
+import './DailyPlanner.css'
 
 const DailyPlanner = ({params}) => {
     const [date,setDate]=useState({})
@@ -59,12 +59,15 @@ const DailyPlanner = ({params}) => {
 
 
 return (
-    <div>
+    <div className='meeting'>
         <input type="date" onChange={(e)=>setDate({dateSelected:e.target.value})} onClick={()=>{setIsBoard(false)
                                                                                                setNewMeeting(null)}} />
          {isBoard?
+         <>
          <div >
          <FontAwesomeIcon icon={faCircleChevronLeft} />
+         </div>
+         <div>
             <table border="2" >
                 <thead>
                     <tr>
@@ -75,8 +78,11 @@ return (
                     <ViewMeeting allMeeting={allMeeting} newMeeting={newMeeting} setNewMeeting={setNewMeeting} params={params} date={date}/>
                 </tbody>
                 </table>
+            </div>
+            <div>
                 <FontAwesomeIcon icon={faCircleChevronRight} />
             </div>
+            </>
             :null}
 
     </div>

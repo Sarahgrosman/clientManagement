@@ -57,4 +57,18 @@ router.post('/newOrder',async(req,res)=>{
     
   })
 
+  router.post('/clientOrder',async(req,res)=>{
+    console.log(req.body);
+    const {name} = req.body;
+    try{
+        const clientOrders = await ordersSchema.find({name})
+        console.log(clientOrders);
+        res.send(clientOrders)
+    }
+    catch(err){
+        res.send(err);
+    }
+    
+  })
+
 module.exports=router

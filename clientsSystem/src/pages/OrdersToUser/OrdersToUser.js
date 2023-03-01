@@ -13,6 +13,7 @@ const OrdersToUser = ({client}) => {
   console.log("orderProduct: " ,orderProducts);
   const [order,setOrder] = useState(null)
   console.log("order:",order);
+  
   const params = useParams();
   const {name,idUser} = params;
   const location = useLocation();

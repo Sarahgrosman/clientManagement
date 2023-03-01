@@ -1,11 +1,19 @@
-import React from 'react'
+import axios from 'axios'
+import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const ClientDetails = ({client,setIsBool,isBool}) => {
-   
+const ClientDetails = ({client,setIsBool,isBool,OrderHistory,setOrderHistory}) => {
+ 
+  
 const navigate = useNavigate()
-    const history = () => {
+    const history = async() => {
+      if(!OrderHistory){
+       const {name} = client[0];
+       console.log("name",name);
+       const {data} = await axios.post('http://localhost:5000/clientOrder',{name})
+       setOrderHistory(data)
 
+      }
     }
 
    

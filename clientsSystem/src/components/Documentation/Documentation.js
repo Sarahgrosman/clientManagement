@@ -7,6 +7,7 @@ const Documentation = ({note}) => {
   return (
     <>
         <span>{note.date}</span>
+        <br/>
         <span>{note.note}</span>
     </>
   )
